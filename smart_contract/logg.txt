@@ -1,0 +1,229 @@
+npm warn deprecated abstract-leveldown@6.2.3: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated abstract-leveldown@6.2.3: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated @ensdomains/ens@0.4.5: Please use @ensdomains/ens-contracts
+npm warn deprecated @ensdomains/resolver@0.2.4: Please use @ensdomains/ens-contracts
+
+added 488 packages, and audited 524 packages in 33s
+
+88 packages are looking for funding
+  run `npm fund` for details
+
+20 vulnerabilities (1 low, 11 moderate, 5 high, 3 critical)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+PS O:\Web3.0.1\smart_contract> npx hardhat
+
+WARNING: You are using Node.js 20.19.5 which is not supported by Hardhat.
+Please upgrade to 22.10.0 or a later LTS version (even major version number)
+
+Error HHE3: No Hardhat config file found.
+
+You can initialize a new project by running Hardhat with --init
+
+For more info go to https://hardhat.org/HHE3 or run Hardhat with --show-stack-traces
+PS O:\Web3.0.1\smart_contract> npx hardhat --init
+
+WARNING: You are using Node.js 20.19.5 which is not supported by Hardhat.
+Please upgrade to 22.10.0 or a later LTS version (even major version number)
+
+
+ █████  █████                         ███  ███                  ███      ██████
+░░███  ░░███                         ░███ ░███                 ░███     ███░░███
+ ░███   ░███   ██████  ████████   ███████ ░███████    ██████  ███████  ░░░  ░███
+ ░██████████  ░░░░░███░░███░░███ ███░░███ ░███░░███  ░░░░░███░░░███░      ████░
+ ░███░░░░███   ███████ ░███ ░░░ ░███ ░███ ░███ ░███   ███████  ░███      ░░░░███
+ ░███   ░███  ███░░███ ░███     ░███ ░███ ░███ ░███  ███░░███  ░███ ███ ███ ░███
+ █████  █████░░███████ █████    ░░███████ ████ █████░░███████  ░░█████ ░░██████
+░░░░░  ░░░░░  ░░░░░░░ ░░░░░      ░░░░░░░ ░░░░ ░░░░░  ░░░░░░░    ░░░░░   ░░░░░░
+
+👷 Welcome to Hardhat v3.0.9 👷
+
+√ Which version of Hardhat would you like to use? · hardhat-2
+√ Where would you like to initialize the project?
+
+Please provide either a relative or an absolute path: · .
+√ What type of project would you like to initialize? · mocha-ethers-js
+✨ Template files copied ✨
+√ You need to install the necessary dependencies using the following command:
+npm install --save-dev "@nomicfoundation/hardhat-chai-matchers@^2.0.0" "@nomicfoundation/hardhat-ethers@^3.0.0" "@nomicfoundation/hardhat-ignition@^0.15.0" "@nomicfoundation/hardhat-ignition-ethers@^0.15.0" "@nomicfoundation/hardhat-network-helpers@^1.0.0" "@nomicfoundation/hardhat-toolbox@^6.0.0" "@nomicfoundation/hardhat-verify@^2.0.0" "@typechain/ethers-v6@^0.5.0" "@typechain/hardhat@^9.0.0" "hardhat-gas-reporter@^2.3.0" "solidity-coverage@^0.8.0" "typechain@^8.3.0"
+
+Do you want to run it now? (Y/n) · true
+
+npm install --save-dev "@nomicfoundation/hardhat-chai-matchers@^2.0.0" "@nomicfoundation/hardhat-ethers@^3.0.0" "@nomicfoundation/hardhat-ignition@^0.15.0" "@nomicfoundation/hardhat-ignition-ethers@^0.15.0" "@nomicfoundation/hardhat-network-helpers@^1.0.0" "@nomicfoundation/hardhat-toolbox@^6.0.0" "@nomicfoundation/hardhat-verify@^2.0.0" "@typechain/ethers-v6@^0.5.0" "@typechain/hardhat@^9.0.0" "hardhat-gas-reporter@^2.3.0" "solidity-coverage@^0.8.0" "typechain@^8.3.0"
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: smart_contract@1.0.0
+npm error Found: ethers@5.8.0
+npm error node_modules/ethers
+npm error   dev ethers@"^5.8.0" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer ethers@"^6.14.0" from @nomicfoundation/hardhat-ethers@3.1.1
+npm error node_modules/@nomicfoundation/hardhat-ethers
+npm error   dev @nomicfoundation/hardhat-ethers@"^3.0.0" from the root project
+npm error   peer @nomicfoundation/hardhat-ethers@"^3.1.0" from @nomicfoundation/hardhat-chai-matchers@2.1.0
+npm error   node_modules/@nomicfoundation/hardhat-chai-matchers
+npm error     dev @nomicfoundation/hardhat-chai-matchers@"^2.0.0" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error C:\Users\Admin\AppData\Local\npm-cache\_logs\2025-10-30T10_27_39_826Z-eresolve-report.txt
+npm error A complete log of this run can be found in: C:\Users\Admin\AppData\Local\npm-cache\_logs\2025-10-30T10_27_39_826Z-debug-0.log
+An unexpected error occurred:
+
+Error: Command "npm install --save-dev "@nomicfoundation/hardhat-chai-matchers@^2.0.0" "@nomicfoundation/hardhat-ethers@^3.0.0" "@nomicfoundation/hardhat-ignition@^0.15.0" "@nomicfoundation/hardhat-ignition-ethers@^0.15.0" "@nomicfoundation/hardhat-network-helpers@^1.0.0" "@nomicfoundation/hardhat-toolbox@^6.0.0" "@nomicfoundation/hardhat-verify@^2.0.0" "@typechain/ethers-v6@^0.5.0" "@typechain/hardhat@^9.0.0" "hardhat-gas-reporter@^2.3.0" "solidity-coverage@^0.8.0" "typechain@^8.3.0" " exited with code 1
+    at ChildProcess.<anonymous> (O:\Web3.0.1\smart_contract\node_modules\hardhat\src\internal\cli\init\subprocess.ts:15:11)
+    at ChildProcess.emit (node:events:524:28)
+    at maybeClose (node:internal/child_process:1104:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:304:5)
+
+If you think this is a bug in Hardhat, please report it here: https://hardhat.org/report-bug
+PS O:\Web3.0.1\smart_contract> 
+ *  History restored 
+
+PS O:\Web3.0.1> cd .\smart_contract\
+PS O:\Web3.0.1\smart_contract> npm install --save-dev hardhat@2.0.11 @nomiclabs/hardhat-waffle@2.0.3 ethereum-waffle@3.4.0 chai @nomiclabs/hardhat-ethers@2.0.2 ethers@5.7.2
+⠧^CTerminate batch job (Y/N)? y
+PS O:\Web3.0.1\smart_contract> npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (smart_contract)
+version: (1.0.0)
+description:
+entry point: (index.js)                                                                                                               
+test command:                                                                                                                         
+git repository:                                                                                                                       
+keywords:                                                                                                                             
+author:                                                                                                                               
+license: (ISC)                                                                                                                        
+About to write to O:\Web3.0.1\smart_contract\package.json:
+
+{
+  "name": "smart_contract",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+Is this OK? (yes)
+
+PS O:\Web3.0.1\smart_contract> npm install --save-dev hardhat@2.0.11 @nomiclabs/hardhat-waffle@2.0.3 ethereum-waffle@3.4.0 chai @nomiclabs/hardhat-ethers@2.0.2 ethers@5.7.2
+npm warn deprecated ganache-core@2.13.2: ganache-core is now ganache; visit https://trfl.io/g7 for details
+npm warn deprecated ganache-core@2.13.2: ganache-core is now ganache; visit https://trfl.io/g7 for details
+npm warn deprecated testrpc@0.0.1: testrpc has been renamed to ganache-cli, please use this package from now on.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated eth-sig-util@2.5.4: Deprecated in favor of '@metamask/eth-sig-util'
+npm warn deprecated level-errors@2.0.1: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated ethereumjs-abi@0.6.8: This library has been deprecated and usage is discouraged.
+npm warn deprecated ethereumjs-account@3.0.0: Please use Util.Account class found on package ethereumjs-util@^7.0.6 https://github.com/ethereumjs/ethereumjs-util/releases/tag/v7.0.6
+npm warn deprecated memdown@3.0.0: Superseded by memory-level (https://github.com/Level/community#faq)
+npm warn deprecated level-mem@3.0.1: Superseded by memory-level (https://github.com/Level/community#faq)
+npm warn deprecated deferred-leveldown@4.0.2: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated ethereumjs-block@2.2.2: New package name format for new versions: @ethereumjs/block. Please update.
+npm warn deprecated encoding-down@5.0.4: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated level-errors@1.0.5: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated level-codec@9.0.2: Superseded by level-transcoder (https://github.com/Level/community#faq)
+npm warn deprecated memdown@1.4.1: Superseded by memory-level (https://github.com/Level/community#faq)
+npm warn deprecated glob@7.1.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated levelup@3.1.1: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated deferred-leveldown@1.2.2: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm warn deprecated debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+npm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm warn deprecated ethashjs@0.0.8: New package name format for new versions: @ethereumjs/ethash. Please update.
+npm warn deprecated level-packager@4.0.1: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated ethereumjs-tx@2.1.2: New package name format for new versions: @ethereumjs/tx. Please update.
+npm warn deprecated level-codec@7.0.1: Superseded by level-transcoder (https://github.com/Level/community#faq)
+npm warn deprecated ethereumjs-blockchain@4.0.4: New package name format for new versions: @ethereumjs/blockchain. Please update.     
+npm warn deprecated abstract-leveldown@5.0.0: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated abstract-leveldown@2.6.3: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated abstract-leveldown@2.7.2: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated levelup@1.3.9: Superseded by abstract-level (https://github.com/Level/community#faq)
+npm warn deprecated ethereumjs-common@1.5.2: New package name format for new versions: @ethereumjs/common. Please update.
+npm warn deprecated @ensdomains/ens@0.4.5: Please use @ensdomains/ens-contracts
+npm warn deprecated @ensdomains/resolver@0.2.4: Please use @ensdomains/ens-contracts
+
+added 1573 packages, and audited 1577 packages in 1m
+
+200 packages are looking for funding
+  run `npm fund` for details
+
+136 vulnerabilities (19 low, 18 moderate, 42 high, 57 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+PS O:\Web3.0.1\smart_contract> npm hardhat
+Unknown command: "hardhat"
+
+To see a list of supported npm commands, run:
+  npm help
+PS O:\Web3.0.1\smart_contract> npm hardhat --init
+Unknown command: "hardhat"
+
+To see a list of supported npm commands, run:
+  npm help
+PS O:\Web3.0.1\smart_contract> npx hardhat --init
+Error HH304: Unrecognised command line argument --init.
+Note that task arguments must come after the task name.
+
+For more info go to https://hardhat.org/HH304 or run Hardhat with --show-stack-traces
+PS O:\Web3.0.1\smart_contract> npx hardhat       
+888    888                      888 888               888
+888    888                      888 888               888
+888    888                      888 888               888
+8888888888  8888b.  888d888 .d88888 88888b.   8888b.  888888
+888    888     "88b 888P"  d88" 888 888 "88b     "88b 888
+888    888 .d888888 888    888  888 888  888 .d888888 888
+888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.
+888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888
+
+Welcome to Hardhat v2.0.11
+
+√ What do you want to do? · Create a sample project
+√ Hardhat project root: · O:\Web3.0.1\smart_contract
+√ Do you want to add a .gitignore? (Y/n) · y
+√ Help us improve Hardhat with anonymous crash reports & basic usage data? (Y/n) · true
+
+You need to install these dependencies to run the sample project:
+  npm install --save-dev "hardhat@^2.0.11" "@nomiclabs/hardhat-waffle@^2.0.0" "ethereum-waffle@^3.0.0" "chai@^4.2.0" "@nomiclabs/hardhat-ethers@^2.0.0" "ethers@^5.0.0"
+
+Project created
+
+Try running some of the following tasks:
+  npx hardhat accounts
+  npx hardhat compile
+  npx hardhat test
+  npx hardhat node
+  node scripts/sample-script.js
+  npx hardhat help
+PS O:\Web3.0.1\smart_contract> 
