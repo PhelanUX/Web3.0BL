@@ -1,0 +1,4 @@
+use npx hardhat run scripts/deploy.js --network coston to run after cd .\smart_contract\
+
+use this link to see transactions https://coston-explorer.flare.network/address/0xc82CE8Ea219d4d3eEDB85A222cf525b7229110b0?tab=index
+and paste the address when run previous command in search box
