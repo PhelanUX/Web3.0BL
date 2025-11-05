@@ -6,7 +6,7 @@ module.exports = {
   networks: {
     coston: {
       url: "https://coston-api.flare.network/ext/C/rpc",
-      accounts: [process.env.PRIVATE_KEY],
+      //accounts: [process.env.PRIVATE_KEY],
       chainId: 16
     }
   }
