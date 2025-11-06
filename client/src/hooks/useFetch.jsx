@@ -3,7 +3,7 @@ const API_KEY = import.meta.env.VITE_GIPHY_API;
 
 const useFetch = ({keyword}) =>{
     const [gifUrl, setGifUrl]= useState("");
-
+    const [prevKeyword, setPrevKeyword] = useState("");
     const fetchGifs = async () =>{
         try {
             const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword.split("").join("")}&limit=1`)
@@ -21,7 +21,11 @@ const useFetch = ({keyword}) =>{
     }
 
     useEffect(() =>{
-        if(keyword) fetchGifs();
+        // if(keyword) fetchGifs();
+          if (keyword && keyword !== prevKeyword) {
+            fetchGifs();
+            setPrevKeyword(keyword);
+          }
     }, [keyword]);
 
     return gifUrl;
