@@ -10,9 +10,13 @@ const useFetch = ({keyword}) =>{
 
             const { data } = await response.json();
 
-            setGifUrl(data[0]?.image?.downsized_medium?.url)
+            setGifUrl(data[0]?.images?.downsized_medium?.url)
         } catch (error) {
-            setGifUrl(`https://i.pinimg.com/originals/73/d3/a1/73d3a14d212314ab1f7268b71d639c15.gif`)
+            setGifUrl("https://i.pinimg.com/originals/73/d3/a1/73d3a14d212314ab1f7268b71d639c15.gif")
+            if (error.message.includes("429")) {
+                console.warn("Rate limit exceeded — switching to fallback GIF");
+            }
+                setGifUrl("https://i.pinimg.com/originals/73/d3/a1/73d3a14d212314ab1f7268b71d639c15.gif");
         }
     }
 

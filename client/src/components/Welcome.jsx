@@ -20,7 +20,7 @@ const Input = ({placeholder, name, type, value, handleChange}) =>(
 );
 
 const Welcome = () => {
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
 
     const handleSubmit = (e) =>{
         const { addressTo, amount, keyword, message} = formData;
@@ -55,7 +55,7 @@ const Welcome = () => {
                         </div>
                         <div className={commonStyles}>Security</div>
                         <div className={`rounded-tr-2xl ${commonStyles}`}>
-                            Ethereum
+                            Songbird
                         </div>
                         <div className={`rounded-bl-2xl ${commonStyles}`}>
                             Web3.0
@@ -80,20 +80,20 @@ const Welcome = () => {
                                     {shortenAddress(currentAccount)}
                                 </p>
                                 <p className="text-white font-semibold text-lg mt-1">
-                                    Ethereum
+                                    Songbird Testnet Coston
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
                         <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange}/>
-                        <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange}/>
+                        <Input placeholder="Amount (CFLR)" name="amount" type="number" handleChange={handleChange}/>
                         <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange}/>
                         <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange}/>
 
                         <div className="h-[1px] w-full bg-gray-400 my-2"/>
 
-                        {false ? (
+                        {isLoading ? (
                             <Loader/>
                         ) : (
                             <button type="button" onClick={handleSubmit}
