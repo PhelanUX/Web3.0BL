@@ -82,6 +82,7 @@ export const TransactionProvider = ({children}) => {
         }
     }
 
+    //connect the wallet
     const connectWallet = async () =>{
         try {
             if(!ethereum) return alert("Please install metamask");
