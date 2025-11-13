@@ -4,7 +4,7 @@ import dummyData from '../utils/dummyData';
 import { shortenAddress } from "../utils/shortenAddress";
 import useFetch from "../hooks/useFetch";
 
-const TransactionCard = ({addressTo, addressFrom, timestamp, message, keyword, amount, url}) =>{
+const TransactionCard = ({addressTo, addressFrom, timestamp, message, keyword, amount, url, transactionHash}) =>{
     const gifUrl = useFetch({keyword});
 
     return (
@@ -26,6 +26,16 @@ const TransactionCard = ({addressTo, addressFrom, timestamp, message, keyword, a
                         <p className="text-white text-base">To: {shortenAddress(addressTo)}</p>
                 </a>
                 <p className="text-white text-base">Amount: {amount} CFLR</p>
+
+                <a href={`https://coston-explorer.flare.network/tx/${transactionHash}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 text-sm break-all">
+                        <p className="text-white text-base">
+                            TxHash: {transactionHash ? shortenAddress(transactionHash) : 'N/A'}
+                        </p>
+                </a>
+
                 {message && (
                     <>
                         <br/>
