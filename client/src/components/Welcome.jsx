@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext, useState} from 'react';
 import {AiFillPlayCircle} from 'react-icons/ai';
 import {SiEthereum} from 'react-icons/si';
 import {BsInfoCircle} from 'react-icons/bs';
@@ -9,7 +9,8 @@ import { shortenAddress } from '../utils/shortenAddress';
 
 const commonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
-const Input = ({placeholder, name, type, value, handleChange}) =>(
+const Input = ({placeholder, name, type, value, handleChange, error}) =>(
+    <div className='w-full'>
     <input placeholder={placeholder}
         type={type}
         step="0.0001"
@@ -17,10 +18,34 @@ const Input = ({placeholder, name, type, value, handleChange}) =>(
         onChange={(e) => handleChange(e, name)}
         className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
     />
+    {error && (
+            <p className="text-red-500 text-xs mt-1">{error}</p>
+        )}
+    </div>
 );
 
 const Welcome = () => {
     const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
+
+    const [errors, setErrors] = useState("");
+
+    const validateForm = () => {
+        const newErrors = {};
+
+        if (!formData.addressTo) newErrors.addressTo = "Address is required";
+        else if (!/^0x[a-fA-F0-9]{40}$/.test(formData.addressTo))
+            newErrors.addressTo = "Invalid Ethereum address";
+
+        if (!formData.amount) newErrors.amount = "Amount is required";
+        else if (isNaN(formData.amount) || parseFloat(formData.amount) <= 0)
+            newErrors.amount = "Amount must be greater than 0";
+
+        if (!formData.keyword) newErrors.keyword = "Keyword is required";
+        if (!formData.message) newErrors.message = "Message is required";
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
     const handleSubmit = (e) =>{
         const { addressTo, amount, keyword, message} = formData;
@@ -32,6 +57,13 @@ const Welcome = () => {
         sendTransaction();
     }
 
+    const isFormValid = 
+        formData.addressTo && 
+        /^0x[a-fA-F0-9]{40}$/.test(formData.addressTo) &&
+        formData.amount && 
+        parseFloat(formData.amount) > 0 &&
+        formData.keyword && 
+        formData.message;
 
     return(
         <div className="flex w-full justify-center items-center">
@@ -86,19 +118,24 @@ const Welcome = () => {
                         </div>
                     </div>
                     <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-                        <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange}/>
-                        <Input placeholder="Amount (CFLR)" name="amount" type="number" handleChange={handleChange}/>
-                        <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange}/>
-                        <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange}/>
+                        <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} error={errors.addressTo}/>
+                        <Input placeholder="Amount (CFLR)" name="amount" type="number" handleChange={handleChange} error={errors.amount}/>
+                        <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange} error={errors.keyword}/>
+                        <Input placeholder="Enter Message" name="message" type="text" handleChange={handleChange} error={errors.message}/>
 
                         <div className="h-[1px] w-full bg-gray-400 my-2"/>
 
                         {isLoading ? (
                             <Loader/>
                         ) : (
-                            <button type="button" onClick={handleSubmit}
-                            className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer">
-                                Send Now
+                            <button type="button" onClick={handleSubmit} disabled={!isFormValid}
+                            className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer
+                            transition-all ${isFormValid 
+                                        ? 'bg-[#2952e3] hover:bg-[#2546bd]' 
+                                        : 'bg-gray-600 opacity-50 cursor-not-allowed'
+                                    }`}
+                            ">
+                                {isFormValid ? 'Send Now' : 'Fill all fields'}
                             </button>
                         )}
                     </div>

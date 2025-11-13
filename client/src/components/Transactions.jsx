@@ -32,7 +32,7 @@ const TransactionCard = ({addressTo, addressFrom, timestamp, message, keyword, a
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:text-blue-300 text-sm break-all">
                         <p className="text-white text-base">
-                            TxHash: {transactionHash ? shortenAddress(transactionHash) : 'N/A'}
+                            Id Transaction: {transactionHash ? shortenAddress(transactionHash) : 'N/A'}
                         </p>
                 </a>
 
