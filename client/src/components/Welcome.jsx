@@ -73,7 +73,7 @@ const Welcome = () => {
                         Send Crypto <br/> across the world
                     </h1>
                     <p className="text-left mt-5 text-white font-light mf:w-9/12 w-11/12 text-base">
-                        Explore the crypto world. Buy and sell cryptocurrencies easily on LTN.
+                        Explore the crypto world. Buy and sell crypto currencies easily on LTN.
                     </p>
                     {!currentAccount && (
                         <button type='button' onClick={connectWallet}
