@@ -42,6 +42,7 @@ const Navbar = () => {
             });
         } catch (error) {
             console.log("User denied permission request");
+            console.error(error);
             // Fallback: hướng dẫn người dùng
             alert("Click the MetaMask icon in your browser to view your wallet profile.");
         }
