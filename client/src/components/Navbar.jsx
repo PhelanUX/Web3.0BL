@@ -12,7 +12,7 @@ const NavbarItem = ({title, classProps, onClick}) =>{
         </li>
     );
 }
-
+// Navbar component
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
 
