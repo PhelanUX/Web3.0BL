@@ -176,12 +176,13 @@ export const TransactionContext = React.createContext();
 
 const { ethereum } = window;
 
+// TẠO HÀM KẾT NỐI VỚI CONTRACT
 const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     return new ethers.Contract(contractAddress, contractABI, signer);
 };
-
+// TẠO PROVIDER
 export const TransactionProvider = ({ children }) => {
     const [formData, setFormData] = useState({ addressTo: "", amount: "", keyword: "", message: "" });
     const [currentAccount, setCurrentAccount] = useState("");
@@ -332,7 +333,7 @@ export const TransactionProvider = ({ children }) => {
             alert("Transaction failed");
         }
     };
-
+// KIỂM TRA KHI COMPONENT ĐƯỢC MOUNT
     useEffect(() => {
         checkIfWalletIsConnected();
         checkIfTransactionsExist();
