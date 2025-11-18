@@ -4,11 +4,17 @@ Language: Javascript, Solidity
 
 Framework: Tailwind, Vite, Hardhat, React
 
-Deployment
+## Deployment
+
 To project setup
 
-npm install
+```bash
+  npm install
+```
 
 To deploy this project run
 
-npm run dev
+```bash
+  npm run dev
+```
+
