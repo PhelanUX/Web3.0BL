@@ -4,7 +4,7 @@ import {AiOutlineClose} from 'react-icons/ai';
 
 import logo from '../../images/logo.png';
 
-
+// Navbar item component
 const NavbarItem = ({title, classProps, onClick}) =>{
     return(
         <li className={`mx-4 cursor-pointer ${classProps}`} onClick={onClick}>
@@ -27,7 +27,7 @@ const Navbar = () => {
     const handleTutorialClick =() => {
         window.open('https://cryptozombies.io/', '_blank', 'noopener,noreferrer');
     }
-
+    // function to handle wallet profile click
     const handleWalletClick = async () => {
         if (!window.ethereum) {
             alert("Please install MetaMask!");
@@ -47,7 +47,7 @@ const Navbar = () => {
             alert("Click the MetaMask icon in your browser to view your wallet profile.");
         }
     };
-
+    // Menu items with their respective click handlers
     const menuItems = [
         { title: "Market", onClick: handleMarketClick },
         { title: "Exchange", onClick: handleExchangeClick },

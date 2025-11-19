@@ -21,7 +21,7 @@ const useFetch = ({keyword}) =>{
                 setGifUrl("https://i.pinimg.com/originals/73/d3/a1/73d3a14d212314ab1f7268b71d639c15.gif");
         }
     }
-
+    //
     useEffect(() =>{
         // if(keyword) fetchGifs();
         // Chỉ fetch khi từ khóa thay đổi
