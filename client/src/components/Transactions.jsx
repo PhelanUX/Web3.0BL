@@ -67,7 +67,7 @@ const Transactions = () => {
     const lastestTransactions = reversedTransactions.slice(0,12);
 
     //giao dich cu hon
-    const olderTransactions = reversedTransactions.slice(10);
+    const olderTransactions = reversedTransactions.slice(12);
 
     return(
         <div className="flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions">
@@ -89,7 +89,7 @@ const Transactions = () => {
                     ))}
                 </div>
 
-                {/*neu co giao dich cu hon moi hien nut show more*/}
+                {/*Nut show more - neu co giao dich cu hon moi hien nut show more*/}
                 {olderTransactions.length> 0 &&(
                     <div className="flex justify-center mt-6">
                         <button className="text-white bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-500 transition-all"
