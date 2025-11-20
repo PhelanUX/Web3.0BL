@@ -57,6 +57,18 @@ const TransactionCard = ({addressTo, addressFrom, timestamp, message, keyword, a
 
 const Transactions = () => {
     const { currentAccount, transactions } = useContext(TransactionContext);
+
+    const[showmore, setShowMore] = React.useState(false);
+
+    //dao giao dich de hien thi giao dich moi nhat o tren cung
+    const reversedTransactions = [...transactions].reverse();
+
+    //10 giao dich gan nhat
+    const lastestTransactions = reversedTransactions.slice(0,12);
+
+    //giao dich cu hon
+    const olderTransactions = reversedTransactions.slice(10);
+
     return(
         <div className="flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions">
             <div className="flex flex-col md:p-12 py-12 px-4">
@@ -70,11 +82,39 @@ const Transactions = () => {
                         Connect your account to see the lastest transactions
                     </h3> 
                 )}
+                {/*hien thi 10 giao dich gan nhat*/}
                 <div className="flex flex-wrap justify-center items-center mt-10">
-                    {[...transactions].reverse().map((transaction, i) =>(
+                    {lastestTransactions.map((transaction, i) =>(
                         <TransactionCard key ={i} {...transaction}/>
                     ))}
                 </div>
+
+                {/*neu co giao dich cu hon moi hien nut show more*/}
+                {olderTransactions.length> 0 &&(
+                    <div className="flex justify-center mt-6">
+                        <button className="text-white bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-500 transition-all"
+                            onClick={() => setShowMore(!showmore)}>
+                            {showmore ? 'Hide older Transactions' : 'Show older Transactions'}
+                        </button>
+                    </div>
+                )}
+
+                {/*hien thi giao dich cu hon neu nguoi dung bam nut show more*/}
+                {showmore &&(
+                    <div className="flex flex-wrap justify-center items-center mt-6">
+                        {olderTransactions.map((transaction, i) =>(
+                            <TransactionCard key={`old-${i}`} {...transaction} />
+                        ))}
+                    </div>
+                )}
+
+
+                {/*hien thi toan bo giao dich*/}
+                {/* <div className="flex flex-wrap justify-center items-center mt-10">
+                    {[...transactions].reverse().map((transaction, i) =>(
+                        <TransactionCard key ={i} {...transaction}/>
+                    ))}
+                </div> */}
             </div>
         </div>
     );
