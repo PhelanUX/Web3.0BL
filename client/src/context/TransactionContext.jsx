@@ -180,6 +180,17 @@ export const TransactionProvider = ({ children }) => {
     useEffect(() => {
         checkIfWalletIsConnected();
         checkIfTransactionsExist();
+
+        if (!ethereum) return;
+        // chuyen doi tai khoan tu doi khi tai khoan trong meta mask thay doi
+        ethereum.on("accountsChanged", async (accounts) => {
+            if (accounts.length > 0) {
+                setCurrentAccount(accounts[0]);
+                await getAllTransactions();
+            } else {
+                setCurrentAccount("");
+            }
+        });
     }, []);
 
     return (
