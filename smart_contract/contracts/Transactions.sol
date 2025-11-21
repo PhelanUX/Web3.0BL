@@ -5,7 +5,8 @@ pragma solidity ^0.8.0;
 contract Transactions {
     uint256 transactionCount;
     // SỰ KIỆN GIAO DỊCH
-    event Transfer (address from, address receiver, uint amount, string message, uint256 timestamp, string keyword);
+    //event Transfer (address from, address receiver, uint amount, string message, uint256 timestamp, string keyword);
+    event Transfer (address indexed from, address receiver, uint amount, string message, uint256 timestamp, string keyword);
     // CẤU TRÚC GIAO DỊCH
     struct TransferStruct {
         address sender;

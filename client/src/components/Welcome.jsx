@@ -129,12 +129,12 @@ const Welcome = () => {
                             <Loader/>
                         ) : (
                             <button type="button" onClick={handleSubmit} disabled={!isFormValid}
-                            className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer
+                            className={`text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer
                             transition-all ${isFormValid 
                                         ? 'bg-[#2952e3] hover:bg-[#2546bd]' 
                                         : 'bg-gray-600 opacity-50 cursor-not-allowed'
                                     }`}
-                            ">
+                            >
                                 {isFormValid ? 'Send Now' : 'Fill all fields'}
                             </button>
                         )}
