@@ -40,10 +40,21 @@ export const TransactionProvider = ({ children }) => {
             const contract = getEthereumContract();
             const rawTxs = await contract.getAllTransactions();
 
+            // Lấy event logs từ contract (giả sử contract phát event Transfer hoặc tên event phù hợp)
+            // events[i].transactionHash chứa txHash của giao dịch tương ứng
+            let events = [];
+            try {
+                const filter = contract.filters.Transfer(); // if your event is named Transfer
+                events = await contract.queryFilter(filter);
+            } catch (e) {
+                console.warn("No events available or filter name mismatch:", e);
+            }
+
             const structured = rawTxs.map((tx, idx) => {
                 const storedHash = getStoredTxHash(idx);
                 const isLatest = idx === rawTxs.length - 1;
                 const hash = storedHash || (isLatest && lastTxHash) || 'Pending...';
+                
 
                 return {
                     addressTo: tx.receiver,
@@ -187,4 +198,3 @@ export const TransactionProvider = ({ children }) => {
         </TransactionContext.Provider>
     );
 };
-
