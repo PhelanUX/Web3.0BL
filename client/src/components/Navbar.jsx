@@ -59,7 +59,9 @@ const Navbar = () => {
     return(
         <nav className="w-full flex md:justify-center justify-between items-center p-4 ">
         <div className="md:flex-[0.5] flex initial justify-center items-center">
-            <img src={logo} alt="logo" className="w-32 cursor-pointer"/>
+            <img src={logo} alt="logo" className="w-32 cursor-pointer" 
+                onClick={() => window.open('https://www.youtube.com/watch?v=xvFZjo5PgG0&list=RDxvFZjo5PgG0&start_radio=1',
+                 '_blank', 'noopener, noreferrer')}/>
         </div>
         <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
             {menuItems.map((item, index) =>(
