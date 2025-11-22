@@ -498,7 +498,7 @@ export const TransactionProvider = ({ children }) => {
         : tx.txHash,
     }));
 
-    setTransactions(structured.reverse());
+    setTransactions(structured);
 
   } catch (error) {
     console.error("Lỗi:", error);
