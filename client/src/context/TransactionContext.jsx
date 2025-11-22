@@ -439,14 +439,14 @@ import { contractABI, contractAddress } from "../utils/constants";
 
 export const TransactionContext = React.createContext();
 
-// ⭐ KHÔNG lấy ethereum quá sớm
+// KHÔNG lấy ethereum quá sớm
 const getEthereum = () => {
   return typeof window !== "undefined" && window.ethereum
     ? window.ethereum
     : null;
 };
 
-// ⭐ Provider an toàn
+// Provider an toàn
 const getEthereumContract = () => {
   const ethereum = getEthereum();
   if (!ethereum) return null;
@@ -455,7 +455,7 @@ const getEthereumContract = () => {
   const signer = provider.getSigner();
   return new ethers.Contract(contractAddress, contractABI, signer);
 };
-
+// TẠO PROVIDER
 export const TransactionProvider = ({ children }) => {
   const [formData, setFormData] = useState({
     addressTo: "",
@@ -463,17 +463,17 @@ export const TransactionProvider = ({ children }) => {
     keyword: "",
     message: "",
   });
-
+  
   const [currentAccount, setCurrentAccount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [transactionCount, setTransactionCount] = useState(0);
   const [transactions, setTransactions] = useState([]);
-
+  // HANDLE CHANGE FORM
   const handleChange = (e, name) => {
     setFormData((prev) => ({ ...prev, [name]: e.target.value }));
   };
 
-  // ⭐ GET ALL TRANSACTIONS
+  // GET ALL TRANSACTIONS
   const getAllTransactions = async () => {
   try {
     if (!ethereum) return;
@@ -485,7 +485,7 @@ export const TransactionProvider = ({ children }) => {
       setTransactions([]);
       return;
     }
-
+    // STRUCTURE DATA
     const structured = rawTxs.map(tx => ({
       addressTo: tx.receiver,
       addressFrom: tx.sender,
@@ -505,7 +505,7 @@ export const TransactionProvider = ({ children }) => {
   }
 };
 
-  // ⭐ CHECK WALLET
+  //CHECK WALLET
   const checkIfWalletIsConnected = async () => {
     try {
       const ethereum = getEthereum();
@@ -523,7 +523,7 @@ export const TransactionProvider = ({ children }) => {
     }
   };
 
-  // ⭐ CHECK TRANSACTION COUNT
+  //CHECK TRANSACTION COUNT
   const checkIfTransactionsExist = async () => {
     try {
       const contract = getEthereumContract();
@@ -536,7 +536,7 @@ export const TransactionProvider = ({ children }) => {
     }
   };
 
-  // ⭐ CONNECT WALLET
+  //CONNECT WALLET
   const connectWallet = async () => {
     try {
       const ethereum = getEthereum();
@@ -552,7 +552,7 @@ export const TransactionProvider = ({ children }) => {
     }
   };
 
-  // ⭐ SEND TRANSACTION
+  //SEND TRANSACTION
   const sendTransaction = async () => {
   try {
     const ethereum = getEthereum();
@@ -594,7 +594,7 @@ export const TransactionProvider = ({ children }) => {
       parsedAmount,
       message,
       keyword,
-      realTxHash  // ← ĐÂY LÀ DÒNG QUAN TRỌNG NHẤT!!!
+      realTxHash  
     );
 
     console.log("Đang lưu vào blockchain... Hash contract:", tx.hash);
@@ -606,12 +606,20 @@ export const TransactionProvider = ({ children }) => {
     setFormData({ addressTo: "", amount: "", keyword: "", message: "" });
     setIsLoading(false);
     
-    alert(`THÀNH CÔNG! Hash: ${realTxHash.slice(0,10)}...${realTxHash.slice(-8)}`);
+    //alert(`THÀNH CÔNG! Hash: ${realTxHash.slice(0,10)}...${realTxHash.slice(-8)}`);
+
+    const userConfirmed = window.confirm(
+        `THÀNH CÔNG! Hash: ${realTxHash.slice(0,10)}...${realTxHash.slice(-8)}`
+    );
+
+    if (userConfirmed) {
+      window.location.reload();
+    }
 
   } catch (error) {
     setIsLoading(false);
     console.error("LỖI CHI TIẾT:", error);
-    alert("Gửi thất bại! Xem console (F12) để biết lỗi chi tiết");
+    alert("Gửi thất bại!");
   }
 };
 
