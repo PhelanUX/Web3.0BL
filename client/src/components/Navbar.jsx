@@ -36,10 +36,11 @@ const Navbar = () => {
 
         try {
             // Yêu cầu quyền → MetaMask tự mở popup profile
-            await window.ethereum.request({
-                method: 'wallet_requestPermissions',
-                params: [{ eth_accounts: {} }],
-            });
+            // await window.ethereum.request({
+            //     method: 'wallet_requestPermissions',
+            //     params: [{ eth_accounts: {} }],
+            // });
+            alert("Click the MetaMask icon in your browser to view your wallet profile.");
         } catch (error) {
             console.log("User denied permission request");
             console.error(error);

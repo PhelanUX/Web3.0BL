@@ -607,13 +607,16 @@ export const TransactionProvider = ({ children }) => {
     setIsLoading(false);
     
     //alert(`THÀNH CÔNG! Hash: ${realTxHash.slice(0,10)}...${realTxHash.slice(-8)}`);
-
+    // Xác nhận xong thì reload trang
     const userConfirmed = window.confirm(
         `THÀNH CÔNG! Hash: ${realTxHash.slice(0,10)}...${realTxHash.slice(-8)}`
     );
 
     if (userConfirmed) {
       window.location.reload();
+    }
+    else {
+        window.location.reload();
     }
 
   } catch (error) {
